@@ -1,0 +1,7 @@
+*.exe
+*.dll
+Debug
+*.cache
+.vs
+.git
+obj

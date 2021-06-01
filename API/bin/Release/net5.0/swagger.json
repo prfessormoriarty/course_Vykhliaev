@@ -1,0 +1,155 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API",
+    "version": "v1"
+  },
+  "paths": {
+    "/getAutos": {
+      "get": {
+        "tags": [
+          "getAutos"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Data"
+            }
+          }
+        }
+      }
+    },
+    "/getManufacturers": {
+      "get": {
+        "tags": [
+          "getManufacturers"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Manufacturers"
+            }
+          }
+        }
+      }
+    },
+    "/getUrl": {
+      "get": {
+        "tags": [
+          "getUrl"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UrlData"
+            }
+          }
+        }
+      }
+    },
+    "/WriteToBd": {
+      "get": {
+        "tags": [
+          "WriteToBd"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AutoDataStructure": {
+      "type": "object",
+      "properties": {
+        "aid": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "model": {
+          "type": "string"
+        },
+        "year": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "manufacturer": {
+          "type": "string"
+        }
+      }
+    },
+    "Data": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AutoDataStructure"
+          }
+        }
+      }
+    },
+    "Manufacturers": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Url": {
+      "type": "object",
+      "properties": {
+        "aid": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "img_url": {
+          "type": "string"
+        }
+      }
+    },
+    "UrlData": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Url"
+          }
+        }
+      }
+    }
+  }
+}
